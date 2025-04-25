@@ -21,7 +21,7 @@ function chatfloat_enqueue_styles() {
         'chatfloat-style',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
-        '1.1.3'
+        '1.1.4'
     );
 }
 add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
