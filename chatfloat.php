@@ -207,13 +207,22 @@ function chatfloat_render_button() {
           </style>';
 
 
-    echo '<div class="chatfloat-container ' . esc_attr($position_class) . '">
-        <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
-            <div class="whatsapp-icon" aria-hidden="true"></div>
-        </a>
-        <a href="' . esc_url($wa_link) . '" target="_blank" class="chatfloat-text"><p><span>' . esc_html($text) . '</span></p></a>
-    </div>';
-
+   echo '<div class="chatfloat-container ' . esc_attr($position_class) . '">';
+    if ($position === 'left') {
+        echo '
+            <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
+                <div class="whatsapp-icon" aria-hidden="true"></div>
+            </a>
+            <a href="' . esc_url($wa_link) . '" target="_blank" class="chatfloat-text"><p><span>' . esc_html($text) . '</span></p></a>
+        </div>';
+    } else {
+        echo '
+            <a href="' . esc_url($wa_link) . '" target="_blank" class="chatfloat-text"><p><span>' . esc_html($text) . '</span></p></a>
+            <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
+                <div class="whatsapp-icon" aria-hidden="true"></div>
+            </a>
+        </div>';
+    }
 
 }
 add_action('wp_footer', 'chatfloat_render_button');
