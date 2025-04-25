@@ -184,7 +184,7 @@ function chatfloat_render_button() {
     $text = get_option('chatfloat_text');
     $position = get_option('chatfloat_position', 'right');
     $bg_color = get_option('chatfloat_bg_color', '#000000'); // Default to black
-    $text_color = get_option('chatfloat_bg_color', '#ffffff'); // Default to white
+    $text_color = get_option('chatfloat_text_color', '#ffffff'); // Default to white
 
 
 
@@ -202,8 +202,6 @@ function chatfloat_render_button() {
     echo '<style>
             .chatfloat-container .chatfloat-text span {
                 background-color: ' . esc_attr($bg_color) . ';
-            }
-            .chatfloat-container .chatfloat-text span {
                 color: ' . esc_attr($text_color) . ';
             }
           </style>';
