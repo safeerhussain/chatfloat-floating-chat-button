@@ -157,7 +157,7 @@ function chatfloat_bg_color_field_callback() {
 }
 
 // Hex color picker for text
-function chatfloat_bg_color_field_callback() {
+function chatfloat_text_color_field_callback() {
     $bg_color = get_option('chatfloat_text_color', '#ffffff'); // Default to black
     echo '<input type="color" name="chatfloat_text_color" value="' . esc_attr($bg_color) . '" />';
 }
