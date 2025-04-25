@@ -23,7 +23,13 @@ function chatfloat_enqueue_styles() {
         [],
         '1.1.4'
     );
+    // Enqueue WordPress color picker scripts and styles
+    wp_enqueue_style('wp-color-picker');
+    wp_enqueue_script('wp-color-picker');
+    wp_add_inline_script('wp-color-picker', 'jQuery(document).ready(function($) { $(".my-color-field").wpColorPicker(); });');
+
 }
+
 add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
 
 // Add admin menu for plugin settings
@@ -67,6 +73,10 @@ function chatfloat_register_settings() {
     // Sanitize button postion
     register_setting('chatfloat_settings_group', 'chatfloat_position', 'sanitize_text_field');
 
+    // Register color setting
+    register_setting('chatfloat_settings_group', 'chatfloat_bg_color', 'sanitize_hex_color');
+
+
 
     add_settings_section(
         'chatfloat_main_section',
@@ -97,7 +107,16 @@ function chatfloat_register_settings() {
         'chatfloat_position_field_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
-);
+    );
+
+    // Add color picker field to settings page
+    add_settings_field(
+        'chatfloat_bg_color_field',
+        __('Background Color for Text:', 'chatfloat-floating-chat-button'),
+        'chatfloat_bg_color_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+    );
 }
 add_action('admin_init', 'chatfloat_register_settings');
 
@@ -118,6 +137,12 @@ function chatfloat_number_field_callback() {
 function chatfloat_text_field_callback() {
     $text = get_option('chatfloat_text');
     echo '<input type="text" name="chatfloat_text" value="' . esc_attr($text) . '" placeholder="' . esc_attr__('Chat with us', 'chatfloat-floating-chat-button') . '">';
+}
+
+// Hex color picker for text background
+function chatfloat_bg_color_field_callback() {
+    $color = get_option('chatfloat_bg_color', '#000000'); // Default to black
+    echo '<input type="text" name="chatfloat_bg_color" value="' . esc_attr($color) . '" class="my-color-field" data-default-color="#000000" />';
 }
 
 // Button position radio field
@@ -141,6 +166,8 @@ function chatfloat_render_button() {
     $number = get_option('chatfloat_number');
     $text = get_option('chatfloat_text');
     $position = get_option('chatfloat_position', 'right');
+    $bg_color = get_option('chatfloat_bg_color', '#000000'); // Default to black
+
 
 
     if (!$number) {
