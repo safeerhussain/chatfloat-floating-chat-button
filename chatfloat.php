@@ -21,7 +21,7 @@ function chatfloat_enqueue_styles() {
         'chatfloat-style',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
-        '1.1.5'
+        '1.1.6'
     );
     // Enqueue WordPress color picker scripts and styles
     wp_enqueue_style('wp-color-picker');
@@ -73,9 +73,11 @@ function chatfloat_register_settings() {
     // Sanitize button postion
     register_setting('chatfloat_settings_group', 'chatfloat_position', 'sanitize_text_field');
 
-    // Register color setting
+    // Register BG color setting
     register_setting('chatfloat_settings_group', 'chatfloat_bg_color', 'sanitize_hex_color');
 
+    // Register text color setting
+    register_setting('chatfloat_settings_group', 'chatfloat_text_color', 'sanitize_hex_color');
 
 
     add_settings_section(
@@ -109,11 +111,20 @@ function chatfloat_register_settings() {
         'chatfloat_main_section'
     );
 
-    // Add color picker field to settings page
+    // Add BG color picker field to settings page
     add_settings_field(
         'chatfloat_bg_color_field',
-        __('Background Color for Text:', 'chatfloat-floating-chat-button'),
+        __('Set Background Color:', 'chatfloat-floating-chat-button'),
         'chatfloat_bg_color_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+    );
+
+    // Add text color picker field to settings page
+    add_settings_field(
+        'chatfloat_bg_color_field',
+        __('Set Text Color:', 'chatfloat-floating-chat-button'),
+        'chatfloat_text_color_field_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
     );
@@ -145,6 +156,12 @@ function chatfloat_bg_color_field_callback() {
     echo '<input type="color" name="chatfloat_bg_color" value="' . esc_attr($bg_color) . '" />';
 }
 
+// Hex color picker for text
+function chatfloat_bg_color_field_callback() {
+    $bg_color = get_option('chatfloat_text_color', '#ffffff'); // Default to black
+    echo '<input type="color" name="chatfloat_text_color" value="' . esc_attr($bg_color) . '" />';
+}
+
 // Button position radio field
 function chatfloat_position_field_callback() {
     $position = get_option('chatfloat_position', 'right'); // Default to right
@@ -167,6 +184,7 @@ function chatfloat_render_button() {
     $text = get_option('chatfloat_text');
     $position = get_option('chatfloat_position', 'right');
     $bg_color = get_option('chatfloat_bg_color', '#000000'); // Default to black
+    $text_color = get_option('chatfloat_bg_color', '#ffffff'); // Default to white
 
 
 
@@ -184,6 +202,9 @@ function chatfloat_render_button() {
     echo '<style>
             .chatfloat-container .chatfloat-text span {
                 background-color: ' . esc_attr($bg_color) . ';
+            }
+            .chatfloat-container .chatfloat-text span {
+                color: ' . esc_attr($text_color) . ';
             }
           </style>';
 
