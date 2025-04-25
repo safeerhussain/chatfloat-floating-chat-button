@@ -99,7 +99,7 @@ function chatfloat_section_callback() {
 // WhatsApp number input field
 function chatfloat_number_field_callback() {
     $number = get_option('chatfloat_number');
-    echo '<input type="text" name="chatfloat_number" value="' . esc_attr($number) . '" placeholder="+1234567890">';
+    echo '<input type="text" name="chatfloat_number" value="' . esc_attr($number) . '" placeholder="+15485178490">';
 }
 
 // Button text input field
