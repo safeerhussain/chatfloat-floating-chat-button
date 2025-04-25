@@ -122,7 +122,7 @@ function chatfloat_register_settings() {
 
     // Add text color picker field to settings page
     add_settings_field(
-        'chatfloat_bg_color_field',
+        'chatfloat_text_color_field',
         __('Set Text Color:', 'chatfloat-floating-chat-button'),
         'chatfloat_text_color_field_callback',
         'chatfloat-settings',
