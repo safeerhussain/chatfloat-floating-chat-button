@@ -141,8 +141,8 @@ function chatfloat_text_field_callback() {
 
 // Hex color picker for text background
 function chatfloat_bg_color_field_callback() {
-    $color = get_option('chatfloat_bg_color', '#000000'); // Default to black
-    echo '<input type="text" name="chatfloat_bg_color" value="' . esc_attr($color) . '" class="my-color-field" data-default-color="#000000" />';
+    $bg_color = get_option('chatfloat_bg_color', '#000000'); // Default to black
+    echo '<input type="color" name="chatfloat_bg_color" value="' . esc_attr($bg_color) . '" />';
 }
 
 // Button position radio field
@@ -180,6 +180,21 @@ function chatfloat_render_button() {
 
     $position_class = $position === 'left' ? 'position-left' : 'position-right';
     
+     // Print out the custom CSS in the <head> to apply the background color dynamically
+    echo '<style>
+            .chatfloat-container .chatfloat-text span {
+                background-color: ' . esc_attr($bg_color) . ';
+            }
+          </style>';
+
+    echo '<div class="chatfloat-container">
+            <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
+                <div class="whatsapp-icon" aria-hidden="true"></div>
+            </a>
+            <a href="' . esc_url($wa_link) . '" target="_blank" class="chatfloat-text"><p><span>' . esc_html($text) . '</span></p></a>
+        </div>';
+
+
     echo '<div class="chatfloat-container ' . esc_attr($position_class) . '">
         <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
             <div class="whatsapp-icon" aria-hidden="true"></div>
