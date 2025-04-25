@@ -79,6 +79,8 @@ function chatfloat_register_settings() {
     // Register text color setting
     register_setting('chatfloat_settings_group', 'chatfloat_text_color', 'sanitize_hex_color');
 
+    // Register pre filled setting message
+    register_setting('chatfloat_settings_group', 'chatfloat_prefill_message');
 
     add_settings_section(
         'chatfloat_main_section',
@@ -99,6 +101,14 @@ function chatfloat_register_settings() {
         'chatfloat_text_field',
         __('Enter Button Text:', 'chatfloat-floating-chat-button'),
         'chatfloat_text_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+    );
+
+    add_settings_field(
+        'chatfloat_prefill_message',
+        'Predefined WhatsApp Message',
+        'chatfloat_prefill_message_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
     );
@@ -133,6 +143,7 @@ add_action('admin_init', 'chatfloat_register_settings');
 
 
 
+
 // Settings section intro text
 function chatfloat_section_callback() {
     echo '<p>' . esc_html_e('Configure your WhatsApp button settings below.', 'chatfloat-floating-chat-button') . '</p>';
@@ -148,6 +159,12 @@ function chatfloat_number_field_callback() {
 function chatfloat_text_field_callback() {
     $text = get_option('chatfloat_text');
     echo '<input type="text" name="chatfloat_text" value="' . esc_attr($text) . '" placeholder="' . esc_attr__('Chat with us', 'chatfloat-floating-chat-button') . '">';
+}
+
+function chatfloat_prefill_message_callback() {
+    $message = get_option('chatfloat_prefill_message', '');
+    echo '<textarea name="chatfloat_prefill_message" rows="3" cols="50" placeholder="e.g. Hello, I\'m interested in your services...">' . esc_textarea($message) . '</textarea>';
+    echo '<p class="description">This message will be pre-filled when users open the WhatsApp chat.</p>';
 }
 
 // Hex color picker for text background
@@ -182,6 +199,7 @@ function chatfloat_position_field_callback() {
 function chatfloat_render_button() {
     $number = get_option('chatfloat_number');
     $text = get_option('chatfloat_text');
+    $prefill_msg = get_option('chatfloat_prefill_message', '');
     $position = get_option('chatfloat_position', 'right');
     $bg_color = get_option('chatfloat_bg_color', '#000000'); // Default to black
     $text_color = get_option('chatfloat_text_color', '#ffffff'); // Default to white
@@ -206,6 +224,10 @@ function chatfloat_render_button() {
             }
           </style>';
 
+
+    if (!empty($prefill_msg)) {
+        $wa_link .= '?text=' . rawurlencode($prefill_msg);
+    }
 
    echo '<div class="chatfloat-container ' . esc_attr($position_class) . '">';
     if ($position === 'left') {
