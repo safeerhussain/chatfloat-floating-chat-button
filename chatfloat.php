@@ -64,6 +64,10 @@ function chatfloat_register_settings() {
     // Sanitize button text
     register_setting('chatfloat_settings_group', 'chatfloat_text', 'sanitize_text_field');
 
+    // Sanitize button postion
+    register_setting('chatfloat_settings_group', 'chatfloat_position', 'sanitize_text_field');
+
+
     add_settings_section(
         'chatfloat_main_section',
         __('WhatsApp Settings', 'chatfloat-floating-chat-button'),
@@ -86,6 +90,14 @@ function chatfloat_register_settings() {
         'chatfloat-settings',
         'chatfloat_main_section'
     );
+
+    add_settings_field(
+        'chatfloat_position_field',
+        __('Button Position:', 'chatfloat-floating-chat-button'),
+        'chatfloat_position_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+);
 }
 add_action('admin_init', 'chatfloat_register_settings');
 
@@ -108,10 +120,28 @@ function chatfloat_text_field_callback() {
     echo '<input type="text" name="chatfloat_text" value="' . esc_attr($text) . '" placeholder="' . esc_attr__('Chat with us', 'chatfloat-floating-chat-button') . '">';
 }
 
+// Button position radio field
+function chatfloat_position_field_callback() {
+    $position = get_option('chatfloat_position', 'right'); // Default to right
+    ?>
+    <label>
+        <input type="radio" name="chatfloat_position" value="right" <?php checked('right', $position); ?> />
+        <?php esc_html_e('Show on right', 'chatfloat-floating-chat-button'); ?>
+    </label><br>
+    <label>
+        <input type="radio" name="chatfloat_position" value="left" <?php checked('left', $position); ?> />
+        <?php esc_html_e('Show on left', 'chatfloat-floating-chat-button'); ?>
+    </label>
+    <?php
+}
+
+
 // Output floating button in footer
 function chatfloat_render_button() {
     $number = get_option('chatfloat_number');
     $text = get_option('chatfloat_text');
+    $position = get_option('chatfloat_position', 'right');
+
 
     if (!$number) {
         return; // Do not show button if number is not set
@@ -121,14 +151,14 @@ function chatfloat_render_button() {
     $wa_link = 'https://wa.me/' . preg_replace('/[^0-9]/', '', $number);
     $icon_url = plugin_dir_url(__FILE__) . 'assets/images/Whatsapp-Icon.svg';
 
-   
+    $position_class = $position === 'left' ? 'position-left' : 'position-right';
     
-    echo '<div class="chatfloat-container">
-    <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
-        <div class="whatsapp-icon" aria-hidden="true"></div>
-    </a>
-    <a href="' . esc_url($wa_link) . '" target="_blank" class="chatfloat-text"><p><span>' . esc_html($text) . '</span></p></a>
-</div>';
+    echo '<div class="chatfloat-container ' . esc_attr($position_class) . '">
+        <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">
+            <div class="whatsapp-icon" aria-hidden="true"></div>
+        </a>
+        <a href="' . esc_url($wa_link) . '" target="_blank" class="chatfloat-text"><p><span>' . esc_html($text) . '</span></p></a>
+    </div>';
 
 
 }
