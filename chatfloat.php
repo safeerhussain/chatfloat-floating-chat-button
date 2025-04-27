@@ -224,6 +224,7 @@ function chatfloat_display_field_callback() {
         <br>
         <input type="checkbox" name="setting_toggle" checked="true">
         <span>Display on desktop</span>
+        <p class="description">Uncheck the box when you want to hide the button on specific devices.</p>
     </label>
     <?php
 }
