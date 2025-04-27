@@ -35,7 +35,7 @@ add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
 // Add admin menu for plugin settings
 function chatfloat_add_admin_menu() {
     add_menu_page(
-        __('Chat Float - Settings', 'chatfloat-floating-chat-button'), // Page title
+        __('Chat Float - Settings lalalala', 'chatfloat-floating-chat-button'), // Page title
         __('Chat Float Button', 'chatfloat-floating-chat-button'),          // Menu title
         'manage_options',                           // Capability
         'chatfloat-settings',                       // Menu slug
@@ -51,7 +51,7 @@ add_action('admin_menu', 'chatfloat_add_admin_menu');
 function chatfloat_settings_page() {
     ?>
     <div class="wrap">
-        <h1><?php esc_html_e('Chat Float - Settings lalalala', 'chatfloat-floating-chat-button'); ?></h1>
+        <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
         <form method="post" action="options.php">
             <?php
             settings_fields('chatfloat_settings_group');
