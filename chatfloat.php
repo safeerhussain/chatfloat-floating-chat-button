@@ -36,7 +36,7 @@ add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
 function chatfloat_add_admin_menu() {
     add_menu_page(
         __('Chat Float - Settings', 'chatfloat-floating-chat-button'), // Page title
-        __('Chat Float', 'chatfloat-floating-chat-button'),          // Menu title
+        __('Chat Float Button', 'chatfloat-floating-chat-button'),          // Menu title
         'manage_options',                           // Capability
         'chatfloat-settings',                       // Menu slug
         'chatfloat_settings_page',                  // Callback function to render page
@@ -44,13 +44,14 @@ function chatfloat_add_admin_menu() {
         25                                          // Menu position
     );
 }
+
 add_action('admin_menu', 'chatfloat_add_admin_menu');
 
 // Render plugin settings page
 function chatfloat_settings_page() {
     ?>
     <div class="wrap">
-        <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
+        <h1><?php esc_html_e('Chat Float - Settings lalalala', 'chatfloat-floating-chat-button'); ?></h1>
         <form method="post" action="options.php">
             <?php
             settings_fields('chatfloat_settings_group');
@@ -81,6 +82,10 @@ function chatfloat_register_settings() {
 
     // Register pre filled setting message
     register_setting('chatfloat_settings_group', 'chatfloat_prefill_message');
+
+    register_setting('chatfloat_settings_group', 'chatfloat_hide_on_mobile');
+    register_setting('chatfloat_settings_group', 'chatfloat_hide_on_desktop');
+
 
     add_settings_section(
         'chatfloat_main_section',
