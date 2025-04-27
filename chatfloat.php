@@ -218,11 +218,12 @@ function chatfloat_position_field_callback() {
 function chatfloat_display_field_callback() {
     $position = get_option('chatfloat_position', 'right'); // Default to right
     ?>
-    <label class="switch">
-        <input type="checkbox" name="setting_toggle">
-        <span class="slider round"></span>
-        <input type="checkbox" name="setting_toggle">
-        <span class="slider round"></span>
+    <label>
+        <span>Display on mobile</span>
+        <input type="checkbox" name="setting_toggle" checked="true">
+        <br>
+        <span>Display on desktop</span>
+        <input type="checkbox" name="setting_toggle" checked="true">
     </label>
     <?php
 }
