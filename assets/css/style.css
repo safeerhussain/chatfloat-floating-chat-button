@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-/* New helper classes */
+/* Position classes */
 .chatfloat-container.position-right {
     right: 20px;
 }
@@ -56,4 +56,30 @@
     .hide-on-mobile {
         display: none !important; /* Hide on mobile */
     }
+}
+
+.settings-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+.settings-main {
+    flex: 1;
+}
+.settings-sidebar {
+    width: 300px;
+    position: relative;
+}
+.sidebar-inner {
+    position: sticky;
+    top: 100px;
+}
+@media (max-width: 768px) {
+  .settings-container {
+    flex-direction: column;
+  }
+  .settings-sidebar {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
