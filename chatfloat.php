@@ -89,11 +89,7 @@ function chatfloat_register_settings() {
     register_setting('chatfloat_settings_group', 'chatfloat_text_color', 'sanitize_hex_color');
 
     // Register pre filled setting message
-    register_setting('chatfloat_settings_group', 'chatfloat_prefill_message');
-
-    register_setting('chatfloat_settings_group', 'chatfloat_hide_on_mobile');
-    register_setting('chatfloat_settings_group', 'chatfloat_hide_on_desktop');
-
+    register_setting('chatfloat_settings_group', 'chatfloat_prefill_message', 'sanitize_text_field');
 
     add_settings_section(
         'chatfloat_main_section',
