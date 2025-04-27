@@ -215,7 +215,7 @@ function chatfloat_position_field_callback() {
 }
 
 // Toggle visibility control
-function chatfloat_position_field_callback() {
+function chatfloat_display_field_callback() {
     $position = get_option('chatfloat_position', 'right'); // Default to right
     ?>
     <label class="switch">
