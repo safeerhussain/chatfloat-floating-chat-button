@@ -62,20 +62,7 @@ function chatfloat_settings_page() {
         <hr class="wp-header-end">
         <h2 class="title">General Settings</h2>
         
-        <!-- Admin Notice -->
-        <div class="notice notice-success is-dismissible">
-            <p>Settings saved successfully.</p>
-        </div>
-
-        <!-- Select Box -->
         
-        <select name="setting_select" id="setting_select">
-          <option value="one">One</option>
-          <option value="two">Two</option>
-          <option value="three">Three</option>
-        </select>
-        
-    </div>
 
 
     
@@ -171,6 +158,7 @@ add_action('admin_init', 'chatfloat_register_settings');
 // Settings section intro text
 function chatfloat_section_callback() {
     echo '<p>' . esc_html_e('Configure your WhatsApp button settings below.', 'chatfloat-floating-chat-button') . '</p>';
+    echo 'Safeer';
 }
 
 // WhatsApp number input field
