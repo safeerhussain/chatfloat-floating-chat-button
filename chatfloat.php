@@ -21,7 +21,7 @@ function chatfloat_enqueue_styles() {
         'chatfloat-style',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
-        '1.1.7'
+        '1.1.8'
     );
     // Enqueue WordPress color picker scripts and styles
     wp_enqueue_style('wp-color-picker');
@@ -220,7 +220,7 @@ function chatfloat_display_field_callback() {
     $display_desktop = get_option('chatfloat_display_desktop', 'yes'); // Default to yes
     $display_mobile = get_option('chatfloat_display_mobile', 'yes');   // Default to yes
     ?>
-    
+
     <label>
         <input type="checkbox" name="chatfloat_display_desktop" value="yes" <?php checked($display_desktop, 'yes'); ?>>
         <span>Display on desktop</span>
@@ -244,6 +244,9 @@ function chatfloat_render_button() {
     $position = get_option('chatfloat_position', 'right');
     $bg_color = get_option('chatfloat_bg_color', '#000000'); // Default to black
     $text_color = get_option('chatfloat_text_color', '#ffffff'); // Default to white
+    $display_desktop = get_option('chatfloat_display_desktop', 'yes');
+    $display_mobile = get_option('chatfloat_display_mobile', 'yes');
+
 
 
 
@@ -256,6 +259,15 @@ function chatfloat_render_button() {
     $icon_url = plugin_dir_url(__FILE__) . 'assets/images/Whatsapp-Icon.svg';
 
     $position_class = $position === 'left' ? 'position-left' : 'position-right';
+
+    // Determine visibility classes
+    $visibility_class = '';
+    if ($display_desktop !== 'yes') {
+        $visibility_class .= ' hide-on-desktop';
+    }
+    if ($display_mobile !== 'yes') {
+        $visibility_class .= ' hide-on-mobile';
+    }
     
      // Print out the custom CSS in the <head> to apply the background color dynamically
     echo '<style>
@@ -270,7 +282,7 @@ function chatfloat_render_button() {
         $wa_link .= '?text=' . rawurlencode($prefill_msg);
     }
 
-   echo '<div class="chatfloat-container ' . esc_attr($position_class) . '">';
+   echo '<div class="chatfloat-container ' . esc_attr($position_class) . esc_attr($visibility_class) . '">';
     if ($position === 'left') {
         echo '
             <a href="' . esc_url($wa_link) . '" target="_blank" class="whatsapp-float-link">

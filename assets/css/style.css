@@ -42,3 +42,21 @@
     background-repeat: no-repeat;
     display: inline-block;
 }
+
+/* Add responsive visibility control */
+.hide-on-desktop {
+    display: none;
+}
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
+    .hide-on-desktop {
+        display: block;
+    }
+}
+@media (min-width: 769px) {
+    .hide-on-mobile {
+        display: block;
+    }
+}
