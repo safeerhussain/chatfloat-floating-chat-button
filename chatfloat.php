@@ -64,37 +64,61 @@ function chatfloat_settings_page() {
       
         <h2 class="title">General Settings</h2>
 
-         <!-- Right Sidebar (Sticky) -->
-        <div class="settings-sidebar" style="width: 300px; position: relative;">
-          <div class="sidebar-inner" style="position: sticky; top: 100px;">
-            
-            <div class="postbox">
-              <button type="button" class="handlediv" aria-expanded="true">
-                <span class="screen-reader-text">Toggle panel: Plugin Info</span>
-                <span class="toggle-indicator" aria-hidden="true"></span>
-              </button>
-              <h2 class="hndle"><span>Plugin Information</span></h2>
-              <div class="inside">
-                <p><strong>Plugin:</strong> My Awesome Plugin</p>
-                <p><strong>Version:</strong> 1.0.0</p>
-                <p><strong>Author:</strong> John Doe</p>
-                <p><a href="https://yourwebsite.com" target="_blank">Visit Website</a></p>
-              </div>
-            </div>
+       <div class="wrap">
+  <h1>Plugin Settings</h1>
+  <hr class="wp-header-end">
 
-            <div class="postbox">
-              <button type="button" class="handlediv" aria-expanded="true">
-                <span class="screen-reader-text">Toggle panel: Help</span>
-                <span class="toggle-indicator" aria-hidden="true"></span>
-              </button>
-              <h2 class="hndle"><span>Need Help?</span></h2>
-              <div class="inside">
-                <p>If you have any issues, please visit our <a href="#">Support Page</a>.</p>
-              </div>
-            </div>
+  <style>
+    .settings-container {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .settings-main {
+      flex: 1;
+    }
+    .settings-sidebar {
+      width: 300px;
+      position: relative;
+    }
+    .sidebar-inner {
+      position: sticky;
+      top: 100px;
+    }
+    @media (max-width: 768px) {
+      .settings-container {
+        flex-direction: column;
+      }
+      .settings-sidebar {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
 
-          </div> <!-- sidebar-inner -->
-          </div> <!-- settings-sidebar -->
+  <div class="settings-container">
+    <!-- Main content -->
+    <div class="settings-main">
+      <p>Main content area here.</p>
+      <p>More content...</p>
+      <p style="margin-bottom: 1000px;">Long enough to test sticky behavior.</p>
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <div class="settings-sidebar">
+      <div class="sidebar-inner">
+        <div class="postbox">
+          <h2 class="hndle"><span>Plugin Info</span></h2>
+          <div class="inside">
+            <p>Author: Safeer</p>
+            <p>Version: 1.0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
         
         
 
