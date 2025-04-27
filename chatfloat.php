@@ -21,7 +21,7 @@ function chatfloat_enqueue_styles() {
         'chatfloat-style',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
-        '1.1.10'
+        '1.1.9'
     );
     // Enqueue WordPress color picker scripts and styles
     wp_enqueue_style('wp-color-picker');
@@ -52,7 +52,33 @@ function chatfloat_settings_page() {
     ?>
     <div class="wrap">
         <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
-        
+        <style>
+        .settings-container {
+          display: flex;
+          gap: 20px;
+          align-items: flex-start;
+        }
+        .settings-main {
+          flex: 1;
+        }
+        .settings-sidebar {
+          width: 300px;
+          position: relative;
+        }
+        .sidebar-inner {
+          position: sticky;
+          top: 100px;
+        }
+        @media (max-width: 768px) {
+          .settings-container {
+            flex-direction: column;
+          }
+          .settings-sidebar {
+            width: 100%;
+            margin-top: 20px;
+          }
+        }
+        </style>
         <div class="settings-container">
             <!-- Main content -->
             <div class="settings-main">
@@ -83,37 +109,6 @@ function chatfloat_settings_page() {
         <hr>
         
         
-
-    <div class="wrap">
-      <h1>Plugin Settings</h1>
-      <hr class="wp-header-end">
-
-      <style>
-        
-      </style>
-
-      <div class="settings-container">
-        <!-- Main content -->
-        <div class="settings-main">
-          <p>Main content area here.</p>
-          <p>More content...</p>
-          <p style="margin-bottom: 1000px;">Long enough to test sticky behavior.</p>
-        </div>
-
-        <!-- Sticky Sidebar -->
-        <div class="settings-sidebar">
-          <div class="sidebar-inner">
-            <div class="postbox">
-              <h2 class="hndle"><span>Plugin Info</span></h2>
-              <div class="inside">
-                <p>Author: Safeer</p>
-                <p>Version: 1.0</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
