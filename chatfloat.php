@@ -352,6 +352,37 @@ jQuery(document).ready(function($){
   });
 </script>
 
+ <!-- Right Sidebar (Sticky) -->
+    <div class="settings-sidebar" style="width: 300px; position: relative;">
+      <div class="sidebar-inner" style="position: sticky; top: 100px;">
+        
+        <div class="postbox">
+          <button type="button" class="handlediv" aria-expanded="true">
+            <span class="screen-reader-text">Toggle panel: Plugin Info</span>
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <h2 class="hndle"><span>Plugin Information</span></h2>
+          <div class="inside">
+            <p><strong>Plugin:</strong> My Awesome Plugin</p>
+            <p><strong>Version:</strong> 1.0.0</p>
+            <p><strong>Author:</strong> John Doe</p>
+            <p><a href="https://yourwebsite.com" target="_blank">Visit Website</a></p>
+          </div>
+        </div>
+
+        <div class="postbox">
+          <button type="button" class="handlediv" aria-expanded="true">
+            <span class="screen-reader-text">Toggle panel: Help</span>
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <h2 class="hndle"><span>Need Help?</span></h2>
+          <div class="inside">
+            <p>If you have any issues, please visit our <a href="#">Support Page</a>.</p>
+          </div>
+        </div>
+
+      </div> <!-- sidebar-inner -->
+    </div> <!-- settings-sidebar -->
     <?php
 }
 
