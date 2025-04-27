@@ -22,6 +22,16 @@ function chatfloat_enqueue_styles() {
         [],
         '1.1.9'
     );
+
+    // Admin styles (only on plugin settings page if needed)
+    if (is_admin()) {
+        wp_enqueue_style(
+            'chatfloat-admin-style',
+            plugin_dir_url(__FILE__) . 'assets/css/admin-style.css',
+            [],
+            '1.1.0'
+    );          
+
     // Enqueue WordPress color picker scripts and styles
     wp_enqueue_style('wp-color-picker');
     wp_enqueue_script('wp-color-picker');
@@ -29,7 +39,9 @@ function chatfloat_enqueue_styles() {
 
 }
 
+add_action('admin_enqueue_scripts', 'chatfloat_enqueue_styles');
 add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
+
 
 // Add admin menu for plugin settings
 function chatfloat_add_admin_menu() {
@@ -53,33 +65,6 @@ function chatfloat_settings_page() {
         <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
         <hr>
 
-        <style>
-        .settings-container {
-          display: flex;
-          gap: 20px;
-          align-items: flex-start;
-        }
-        .settings-main {
-          flex: 1;
-        }
-        .settings-sidebar {
-          width: 300px;
-          position: relative;
-        }
-        .sidebar-inner {
-          position: sticky;
-          top: 100px;
-        }
-        @media (max-width: 768px) {
-          .settings-container {
-            flex-direction: column;
-          }
-          .settings-sidebar {
-            width: 100%;
-            margin-top: 20px;
-          }
-        }
-        </style>
         <div class="settings-container">
             <!-- Main content -->
             <div class="settings-main">
