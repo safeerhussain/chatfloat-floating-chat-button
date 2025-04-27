@@ -30,14 +30,14 @@ function chatfloat_enqueue_styles() {
             plugin_dir_url(__FILE__) . 'assets/css/admin-style.css',
             [],
             '1.1.0'
-        );          
+        );     
+      
+        // Enqueue WordPress color picker scripts and styles
+        wp_enqueue_style('wp-color-picker');
+        wp_enqueue_script('wp-color-picker');
+        wp_add_inline_script('wp-color-picker', 'jQuery(document).ready(function($) { $(".my-color-field").wpColorPicker(); });');
     }
-
-    // Enqueue WordPress color picker scripts and styles
-    wp_enqueue_style('wp-color-picker');
-    wp_enqueue_script('wp-color-picker');
-    wp_add_inline_script('wp-color-picker', 'jQuery(document).ready(function($) { $(".my-color-field").wpColorPicker(); });');
-
+    
 }
 
 add_action('admin_enqueue_scripts', 'chatfloat_enqueue_styles');
