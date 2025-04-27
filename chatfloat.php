@@ -24,7 +24,7 @@ function chatfloat_enqueue_styles() {
     );
 
     // Admin styles (only on plugin settings page if needed)
-    if (!is_admin()) {
+    if (is_admin()) {
         wp_enqueue_style(
             'chatfloat-admin-style',
             plugin_dir_url(__FILE__) . 'assets/css/admin-style.css',
