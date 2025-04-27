@@ -83,7 +83,8 @@ function chatfloat_register_settings() {
     register_setting('chatfloat_settings_group', 'chatfloat_position', 'sanitize_text_field');
 
     // Sanitize desktop/mobile visibility toggle  
-    register_setting('chatfloat_settings_group', 'chatfloat_display', 'sanitize_text_field');
+    register_setting('chatfloat_settings_group', 'chatfloat_display_desktop', 'sanitize_text_field');
+    register_setting('chatfloat_settings_group', 'chatfloat_display_mobile', 'sanitize_text_field');
 
     // Register BG color setting
     register_setting('chatfloat_settings_group', 'chatfloat_bg_color', 'sanitize_hex_color');
@@ -216,16 +217,21 @@ function chatfloat_position_field_callback() {
 
 // Toggle visibility control
 function chatfloat_display_field_callback() {
-    $position = get_option('chatfloat_position', 'right'); // Default to right
+    $display_desktop = get_option('chatfloat_display_desktop', 'yes'); // Default to yes
+    $display_mobile = get_option('chatfloat_display_mobile', 'yes');   // Default to yes
     ?>
+    
     <label>
-        <input type="checkbox" name="setting_toggle" checked="true">
-        <span>Display on mobile</span>
-        <br>
-        <input type="checkbox" name="setting_toggle" checked="true">
+        <input type="checkbox" name="chatfloat_display_desktop" value="yes" <?php checked($display_desktop, 'yes'); ?>>
         <span>Display on desktop</span>
-        <p class="description">Uncheck the box when you want to hide the button on specific devices.</p>
     </label>
+    <br>
+    <label>
+        <input type="checkbox" name="chatfloat_display_mobile" value="yes" <?php checked($display_mobile, 'yes'); ?>>
+        <span>Display on mobile</span>
+    </label>
+    <p class="description">Uncheck the box when you want to hide the button on specific devices.</p>
+   
     <?php
 }
 
