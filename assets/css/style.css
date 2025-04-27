@@ -43,20 +43,17 @@
     display: inline-block;
 }
 
-/* Add responsive visibility control */
-.hide-on-desktop {
-    display: none;
+
+/* On desktop screens (width >= 769px) */
+@media (min-width: 769px) {
+    .hide-on-desktop {
+        display: none !important; /* Hide on desktop */
+    }
 }
+
+/* On mobile screens (width <= 768px) */
 @media (max-width: 768px) {
     .hide-on-mobile {
-        display: none;
-    }
-    .hide-on-desktop {
-        display: block;
-    }
-}
-@media (min-width: 769px) {
-    .hide-on-mobile {
-        display: block;
+        display: none !important; /* Hide on mobile */
     }
 }
