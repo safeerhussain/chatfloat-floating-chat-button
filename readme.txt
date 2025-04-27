@@ -8,6 +8,8 @@ Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+A simple and lightweight plugin to add a floating WhatsApp button on your website. Fully customizable via admin settings.
+
 == Description ==
 A lightweight and easy-to-use WordPress plugin that adds a floating WhatsApp button on every page of your site. Let visitors instantly reach out via WhatsApp. Ideal for businesses, freelancers, or support teams who want to stay connected with their users in real time.
 
