@@ -62,52 +62,97 @@ function chatfloat_settings_page() {
     </div>
 
     <div class="wrap">
-  <h1>Plugin Settings</h1>
+  <h1 class="wp-heading-inline">Plugin Name - Settings</h1>
+  <hr class="wp-header-end">
 
-  <!-- Tabs Navigation -->
-  <h2 class="nav-tab-wrapper">
-    <a href="#general" class="nav-tab nav-tab-active">General</a>
-    <a href="#advanced" class="nav-tab">Advanced</a>
-  </h2>
+  <!-- Admin Notice -->
+  <div class="notice notice-success is-dismissible">
+    <p>Settings saved successfully.</p>
+  </div>
 
   <!-- Settings Form -->
   <form method="post" action="options.php">
     <?php settings_fields('your_plugin_options_group'); ?>
     <?php do_settings_sections('your_plugin_slug'); ?>
 
-    <!-- General Section -->
-    <div id="general" class="tab-content active">
+    <h2 class="title">General Settings</h2>
 
-      <h2>General Settings</h2>
-      
-      <table class="form-table">
-        <tr valign="top">
+    <table class="form-table">
+      <tbody>
+
+        <!-- Text Field -->
+        <tr>
           <th scope="row"><label for="setting_text">Text Field</label></th>
-          <td><input type="text" id="setting_text" name="setting_text" value="" class="regular-text"></td>
+          <td><input name="setting_text" type="text" id="setting_text" value="" class="regular-text"></td>
         </tr>
 
-        <tr valign="top">
-          <th scope="row"><label for="setting_checkbox">Checkbox</label></th>
-          <td><input type="checkbox" id="setting_checkbox" name="setting_checkbox" value="1"> Enable feature</td>
+        <!-- Email Field -->
+        <tr>
+          <th scope="row"><label for="setting_email">Email Field</label></th>
+          <td><input name="setting_email" type="email" id="setting_email" value="" class="regular-text ltr"></td>
         </tr>
 
-        <tr valign="top">
-          <th scope="row"><label for="setting_select">Select Option</label></th>
+        <!-- URL Field -->
+        <tr>
+          <th scope="row"><label for="setting_url">URL Field</label></th>
+          <td><input name="setting_url" type="url" id="setting_url" value="" class="regular-text code"></td>
+        </tr>
+
+        <!-- Number Field -->
+        <tr>
+          <th scope="row"><label for="setting_number">Number Field</label></th>
+          <td><input name="setting_number" type="number" id="setting_number" value="" class="small-text"> units</td>
+        </tr>
+
+        <!-- Password Field -->
+        <tr>
+          <th scope="row"><label for="setting_password">Password</label></th>
+          <td><input name="setting_password" type="password" id="setting_password" value="" class="regular-text"></td>
+        </tr>
+
+        <!-- Textarea -->
+        <tr>
+          <th scope="row"><label for="setting_textarea">Textarea</label></th>
+          <td><textarea name="setting_textarea" id="setting_textarea" rows="5" class="large-text code"></textarea></td>
+        </tr>
+
+        <!-- Select Box -->
+        <tr>
+          <th scope="row"><label for="setting_select">Select</label></th>
           <td>
-            <select id="setting_select" name="setting_select">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
+            <select name="setting_select" id="setting_select">
+              <option value="one">One</option>
+              <option value="two">Two</option>
+              <option value="three">Three</option>
             </select>
           </td>
         </tr>
 
-        <tr valign="top">
-          <th scope="row"><label for="setting_textarea">Textarea</label></th>
-          <td><textarea id="setting_textarea" name="setting_textarea" rows="5" cols="50"></textarea></td>
+        <!-- Checkbox -->
+        <tr>
+          <th scope="row">Checkbox</th>
+          <td>
+            <fieldset>
+              <label><input name="setting_checkbox" type="checkbox" value="1"> Enable Feature</label><br>
+              <label><input name="setting_checkbox2" type="checkbox" value="1"> Another Option</label>
+            </fieldset>
+          </td>
         </tr>
 
-        <tr valign="top">
-          <th scope="row">Toggle Switch</th>
+        <!-- Radio Buttons -->
+        <tr>
+          <th scope="row">Radio Buttons</th>
+          <td>
+            <fieldset>
+              <label><input name="setting_radio" type="radio" value="yes" checked> Yes</label><br>
+              <label><input name="setting_radio" type="radio" value="no"> No</label>
+            </fieldset>
+          </td>
+        </tr>
+
+        <!-- Toggle Switch -->
+        <tr>
+          <th scope="row">Toggle (Checkbox Styled)</th>
           <td>
             <label class="switch">
               <input type="checkbox" name="setting_toggle">
@@ -116,68 +161,78 @@ function chatfloat_settings_page() {
           </td>
         </tr>
 
-      </table>
+        <!-- Color Picker -->
+        <tr>
+          <th scope="row"><label for="setting_color">Color Picker</label></th>
+          <td><input name="setting_color" type="text" id="setting_color" value="#ffffff" class="wp-color-picker-field"></td>
+        </tr>
 
-      <?php submit_button(); ?>
-    </div>
+        <!-- Media Uploader -->
+        <tr>
+          <th scope="row">Upload Image</th>
+          <td>
+            <input type="text" name="setting_image" id="setting_image" value="" class="regular-text">
+            <input type="button" name="upload-btn" id="upload-btn" class="button-secondary" value="Upload Image">
+          </td>
+        </tr>
 
-    <!-- Advanced Section -->
-    <div id="advanced" class="tab-content" style="display:none;">
-      <h2>Advanced Settings</h2>
+      </tbody>
+    </table>
 
-      <!-- Accordions -->
-      <div class="accordion">
-        <h3>Accordion Title 1</h3>
-        <div class="accordion-content">
-          <p>Content inside accordion 1.</p>
-        </div>
-
-        <h3>Accordion Title 2</h3>
-        <div class="accordion-content">
-          <p>Content inside accordion 2.</p>
-        </div>
-      </div>
-
-    </div>
+    <!-- Submit Button -->
+    <?php submit_button(); ?>
 
   </form>
+
+  <hr>
+
+  <!-- Example of a Postbox (Metabox style box) -->
+  <div id="poststuff">
+    <div class="postbox">
+      <button type="button" class="handlediv" aria-expanded="true">
+        <span class="screen-reader-text">Toggle panel: Info Box</span>
+        <span class="toggle-indicator" aria-hidden="true"></span>
+      </button>
+      <h2 class="hndle"><span>Additional Information</span></h2>
+      <div class="inside">
+        <p>This is an info box styled like WordPress metaboxes.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!-- Simple Styles and Scripts to Demo Tabs, Accordion, and Toggle -->
+<!-- Some basic styling for the toggle switch -->
 <style>
-  .tab-content { margin-top: 20px; }
-  .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
-  .switch input { display: none; }
-  .slider { position: absolute; cursor: pointer; background-color: #ccc; border-radius: 24px; top: 0; left: 0; right: 0; bottom: 0; transition: .4s; }
-  .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: .4s; }
-  input:checked + .slider { background-color: #0073aa; }
-  input:checked + .slider:before { transform: translateX(26px); }
-  
-  .accordion h3 { cursor: pointer; background: #f1f1f1; padding: 10px; margin: 0; }
-  .accordion-content { display: none; padding: 10px; background: #fff; border: 1px solid #ddd; }
+.switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+.switch input { display: none; }
+.slider { position: absolute; cursor: pointer; background-color: #ccc; border-radius: 24px; top: 0; left: 0; right: 0; bottom: 0; transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: .4s; }
+input:checked + .slider { background-color: #0073aa; }
+input:checked + .slider:before { transform: translateX(26px); }
 </style>
 
+<!-- Script for Color Picker and Media Uploader -->
 <script>
-  // Tabs
-  document.querySelectorAll('.nav-tab').forEach(tab => {
-    tab.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('nav-tab-active'));
-      this.classList.add('nav-tab-active');
+jQuery(document).ready(function($){
+  // Color Picker
+  $('.wp-color-picker-field').wpColorPicker();
 
-      document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-      document.querySelector(this.getAttribute('href')).style.display = 'block';
+  // Media Uploader
+  $('#upload-btn').click(function(e) {
+    e.preventDefault();
+    var image = wp.media({ 
+      title: 'Upload Image',
+      multiple: false
+    }).open()
+    .on('select', function(e){
+      var uploaded_image = image.state().get('selection').first();
+      var image_url = uploaded_image.toJSON().url;
+      $('#setting_image').val(image_url);
     });
   });
-
-  // Accordions
-  document.querySelectorAll('.accordion h3').forEach(h3 => {
-    h3.addEventListener('click', function() {
-      this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';
-    });
-  });
+});
 </script>
-
 
     <?php
 }
