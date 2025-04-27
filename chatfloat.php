@@ -21,7 +21,7 @@ function chatfloat_enqueue_styles() {
         'chatfloat-style',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
-        '1.1.8'
+        '1.1.9'
     );
     // Enqueue WordPress color picker scripts and styles
     wp_enqueue_style('wp-color-picker');
