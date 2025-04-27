@@ -22,7 +22,16 @@ function chatfloat_enqueue_styles() {
         [],
         '1.1.9'
     );
-       
+
+    // Admin styles (only on plugin settings page if needed)
+    if (!is_admin()) {
+        wp_enqueue_style(
+            'chatfloat-admin-style',
+            plugin_dir_url(__FILE__) . 'assets/css/admin-style.css',
+            [],
+            '1.1.0'
+        );          
+    }
 
     // Enqueue WordPress color picker scripts and styles
     wp_enqueue_style('wp-color-picker');
@@ -31,6 +40,7 @@ function chatfloat_enqueue_styles() {
 
 }
 
+add_action('admin_enqueue_scripts', 'chatfloat_enqueue_styles');
 add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
 
 
