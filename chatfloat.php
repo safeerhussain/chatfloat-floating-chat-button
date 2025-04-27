@@ -158,7 +158,6 @@ add_action('admin_init', 'chatfloat_register_settings');
 // Settings section intro text
 function chatfloat_section_callback() {
     echo '<p>' . esc_html_e('Configure your WhatsApp button settings below.', 'chatfloat-floating-chat-button') . '</p>';
-    echo 'Safeer';
 }
 
 // WhatsApp number input field
