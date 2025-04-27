@@ -82,6 +82,9 @@ function chatfloat_register_settings() {
     // Sanitize button postion
     register_setting('chatfloat_settings_group', 'chatfloat_position', 'sanitize_text_field');
 
+    // Sanitize desktop/mobile visibility toggle  
+    register_setting('chatfloat_settings_group', 'chatfloat_display', 'sanitize_text_field');
+
     // Register BG color setting
     register_setting('chatfloat_settings_group', 'chatfloat_bg_color', 'sanitize_hex_color');
 
@@ -126,6 +129,14 @@ function chatfloat_register_settings() {
         'chatfloat_position_field',
         __('Button Position:', 'chatfloat-floating-chat-button'),
         'chatfloat_position_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+    );
+
+    add_settings_field(
+        'chatfloat_display_field',
+        __('Control Visibility:', 'chatfloat-floating-chat-button'),
+        'chatfloat_display_field_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
     );
@@ -199,6 +210,19 @@ function chatfloat_position_field_callback() {
     <label>
         <input type="radio" name="chatfloat_position" value="left" <?php checked('left', $position); ?> />
         <?php esc_html_e('Show on left', 'chatfloat-floating-chat-button'); ?>
+    </label>
+    <?php
+}
+
+// Toggle visibility control
+function chatfloat_position_field_callback() {
+    $position = get_option('chatfloat_position', 'right'); // Default to right
+    ?>
+    <label class="switch">
+        <input type="checkbox" name="setting_toggle">
+        <span class="slider round"></span>
+        <input type="checkbox" name="setting_toggle">
+        <span class="slider round"></span>
     </label>
     <?php
 }
