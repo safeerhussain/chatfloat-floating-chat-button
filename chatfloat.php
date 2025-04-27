@@ -52,6 +52,9 @@ function chatfloat_settings_page() {
     ?>
     <div class="wrap">
         <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
+        <hr>
+        <hr class="wp-header-end">
+
         <form method="post" action="options.php">
             <?php
             settings_fields('chatfloat_settings_group');
@@ -59,7 +62,7 @@ function chatfloat_settings_page() {
             submit_button();
             ?>
         </form>
-        <hr class="wp-header-end">
+      
         <h2 class="title">General Settings</h2>
         
         
@@ -156,7 +159,7 @@ add_action('admin_init', 'chatfloat_register_settings');
 
 
 // Settings section intro text
-function chatfloat_section_callback() {
+function e() {
     echo '<p>' . esc_html_e('Configure your WhatsApp button settings below.', 'chatfloat-floating-chat-button') . '</p>';
 }
 
