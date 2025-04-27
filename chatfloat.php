@@ -219,6 +219,7 @@ function chatfloat_number_field_callback() {
 function chatfloat_text_field_callback() {
     $text = get_option('chatfloat_text');
     echo '<input type="text" name="chatfloat_text" value="' . esc_attr($text) . '" placeholder="' . esc_attr__('Chat with us', 'chatfloat-floating-chat-button') . '">';
+    echo '<p class="description">This is the label text which will be displayed with WhatsApp icon. Recommended to keep it short.</p>';
 }
 
 function chatfloat_prefill_message_callback() {
