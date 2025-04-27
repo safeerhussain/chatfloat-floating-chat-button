@@ -39,7 +39,6 @@ function chatfloat_enqueue_styles() {
 
 }
 
-add_action('admin_enqueue_scripts', 'chatfloat_enqueue_styles');
 add_action('wp_enqueue_scripts', 'chatfloat_enqueue_styles');
 
 
