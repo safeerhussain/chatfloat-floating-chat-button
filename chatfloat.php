@@ -330,7 +330,7 @@ function chatfloat_render_button() {
     $display_mobile = get_option('chatfloat_display_mobile', 'yes');
     $dark_mode = get_option('chatfloat_darkmode', 'yes');
 
-
+    console_log('=========>'.$dark_mode);
 
 
     if (!$number) {
@@ -369,6 +369,7 @@ function chatfloat_render_button() {
                 }
             }
           </style>';
+
 
 
     if (!empty($prefill_msg)) {
