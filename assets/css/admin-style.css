@@ -23,8 +23,3 @@
     margin-top: 20px;
   }
 }
-/* Highlight effect when an input changes */
-.highlight-change {
-    border: 2px solid #25D366; /* Green color for highlight */
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.6); /* Glowing effect */
-}
