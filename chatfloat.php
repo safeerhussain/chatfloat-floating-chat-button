@@ -328,6 +328,7 @@ function chatfloat_render_button() {
     $text_color = get_option('chatfloat_text_color', '#ffffff'); // Default to white
     $display_desktop = get_option('chatfloat_display_desktop', 'yes');
     $display_mobile = get_option('chatfloat_display_mobile', 'yes');
+    $dark_mode = get_option('chatfloat_darkmode', 'yes');
 
 
 
@@ -352,22 +353,30 @@ function chatfloat_render_button() {
     }
     
      // Print out the custom CSS in the <head> to apply the background color dynamically
-    echo '<style>
+    <?php
+        $dark_mode = get_option('chatfloat_darkmode', 'yes');
+
+        echo '<style>
             .chatfloat-container .chatfloat-text span {
                 background-color: ' . esc_attr($bg_color) . ';
                 color: ' . esc_attr($text_color) . ';
                 transition: background-color 0.5s ease, color 0.5s ease;
-            }
+            }';
 
+        if ($dark_mode === 'yes') {
+            echo '
             @media (prefers-color-scheme: dark) {
                 .chatfloat-container .chatfloat-text span {
                     background-color: #25D366;
                     color: #333333;
                     transition: background-color 0.5s ease, color 0.5s ease;
-
                 }
-            }
-          </style>';
+            }';
+        }
+
+        echo '</style>';
+    ?>
+
 
 
     if (!empty($prefill_msg)) {
