@@ -96,6 +96,7 @@ function chatfloat_settings_page() {
 
                     <h3>🤝 Need Support?</h3>
                     <p>Comments, suggestions, feedback? Shoot an email:
+                        <br> 
                         <a href="mailto:hello@digitaleggheads.com" style="text-decoration:none;">
                             📧 hello@digitaleggheads.com
                         </a>
@@ -105,10 +106,10 @@ function chatfloat_settings_page() {
 
                     <h3>✨ About Digital Eggheads</h3>
                     <p>A futuristic digital marketing agency, helping you take your business to new heights of success with multi-channel services that add brilliance to your digital presence.
-                    <br> 
-                    <a href="https://digitaleggheads.com" target="_blank" style="text-decoration:none;">
-                        🌐 Visit our website
-                    </a>
+                        <br> 
+                        <a href="https://digitaleggheads.com" target="_blank" style="text-decoration:none;">
+                            🌐 Visit our website
+                        </a>
                     </p>
 
                     <div style="margin-top:20px; font-size:12px; color:#777;">
