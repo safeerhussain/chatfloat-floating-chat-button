@@ -88,10 +88,7 @@ function chatfloat_settings_page() {
                     <p>Developed with passion by <strong>Digital Eggheads</strong>.</p>
 
                     <hr>
-
-                    <h3>🔧 Current Version</h3>
-                    <p><strong><?php echo esc_html( CHATFLOAT_VERSION ); ?></strong></p>
-
+                    
                     <h3>🎯 What It Does</h3>
                     <p>A simple and lightweight plugin to add a floating WhatsApp button on your website. Fully customizable via admin settings. Let your visitors chat instantly!</p>
 
