@@ -95,9 +95,8 @@ function chatfloat_settings_page() {
                     <hr>
 
                     <h3>🤝 Need Support?</h3>
-                    <p>Comments, suggestions, feedback? Shoot an email:</p>
-                    <p>
-                        <a href="mailto:hello@digitaleggheads.com" style="text-decoration:none; font-weight:bold;">
+                    <p>Comments, suggestions, feedback? Shoot an email:
+                        <a href="mailto:hello@digitaleggheads.com" style="text-decoration:none;">
                             📧 hello@digitaleggheads.com
                         </a>
                     </p>
