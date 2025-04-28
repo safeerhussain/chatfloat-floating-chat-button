@@ -83,43 +83,41 @@ function chatfloat_settings_page() {
             <div class="settings-sidebar">
               <div class="sidebar-inner">
                 <div class="postbox">
-                  <h2 class="hndle"><span>Plugin Info</span></h2>
                   <div class="inside">
                     <h2>🚀 About This Plugin</h2>
-    <p>Developed with passion by <strong>Digital Eggheads</strong>.</p>
+                    <p>Developed with passion by <strong>Digital Eggheads</strong>.</p>
 
-    <hr>
+                    <hr>
 
-    <h3>🔧 Current Version</h3>
-    <p><strong><?php echo esc_html( CHATFLOAT_VERSION ); ?></strong></p>
+                    <h3>🔧 Current Version</h3>
+                    <p><strong><?php echo esc_html( CHATFLOAT_VERSION ); ?></strong></p>
 
-    <h3>🎯 What It Does</h3>
-    <p>A simple and lightweight plugin to add a floating WhatsApp button on your website. Fully customizable via admin settings. Let your visitors chat instantly!</p>
+                    <h3>🎯 What It Does</h3>
+                    <p>A simple and lightweight plugin to add a floating WhatsApp button on your website. Fully customizable via admin settings. Let your visitors chat instantly!</p>
 
-    <hr>
+                    <hr>
 
-    <h3>🤝 Need Support?</h3>
-    <p>We're here to help! Drop us a line:</p>
-    <p>
-        <a href="mailto:hello@digitaleggheads.com" style="text-decoration:none; font-weight:bold;">
-            📧 hello@digitaleggheads.com
-        </a>
-    </p>
+                    <h3>🤝 Need Support?</h3>
+                    <p>Comments, suggestions, feedback? Shoot an email:</p>
+                    <p>
+                        <a href="mailto:hello@digitaleggheads.com" style="text-decoration:none; font-weight:bold;">
+                            📧 hello@digitaleggheads.com
+                        </a>
+                    </p>
 
-    <hr>
+                    <hr>
 
-    <h3>✨ About Digital Eggheads</h3>
-    <p>We’re a creative tech agency transforming ideas into digital experiences.<br> 
-    <a href="https://digitaleggheads.com" target="_blank" style="text-decoration:none;">
-        🌐 Visit our website
-    </a>
-    </p>
+                    <h3>✨ About Digital Eggheads</h3>
+                    <p>A futuristic digital marketing agency, helping you take your business to new heights of success with multi-channel services that add brilliance to your digital presence.
+                    <br> 
+                    <a href="https://digitaleggheads.com" target="_blank" style="text-decoration:none;">
+                        🌐 Visit our website
+                    </a>
+                    </p>
 
-    <div style="margin-top:20px; font-size:12px; color:#777;">
-        Made with ❤️ by Digital Eggheads
-    </div>
-                    <p>Author: Safeer</p>
-                    <p>Version: 1.0</p>
+                    <div style="margin-top:20px; font-size:12px; color:#777;">
+                        Made with ❤️ by Digital Eggheads
+                    </div>
                   </div>
                 </div>
               </div>
