@@ -362,7 +362,7 @@ function chatfloat_render_button() {
                 transition: background-color 0.5s ease, color 0.5s ease;
             }';
 
-        if ($dark_mode === 'yes') {
+        if (true) {
             echo '
             @media (prefers-color-scheme: dark) {
                 .chatfloat-container .chatfloat-text span {
