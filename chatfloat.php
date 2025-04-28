@@ -304,7 +304,7 @@ function chatfloat_display_field_callback() {
 
 
 // Dark mode option
-function chatfloat_darkmode_callback() {
+function chatfloat_darkmode_field_callback() {
     $dark_mode = get_option('chatfloat_darkmode', 'no'); // Default to no
     ?>
 
