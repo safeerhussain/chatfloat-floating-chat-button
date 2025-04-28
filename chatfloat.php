@@ -330,10 +330,7 @@ function chatfloat_render_button() {
     $display_mobile = get_option('chatfloat_display_mobile', 'yes');
     $dark_mode = get_option('chatfloat_darkmode');
 
-    console_log('=========>'.$dark_mode);
-    var_dump($dark_mode);
-
-
+    
     if (!$number) {
         return; // Do not show button if number is not set
     }
