@@ -344,11 +344,11 @@ function chatfloat_margin_field_callback() {
     $bottom_margin = get_option('chatfloat_bottom_margin', 20); // Default to 20px
     $horizontal_margin = get_option('chatfloat_horizontal_margin', 20); // Default to 20px
 
-    echo '<input type="text" name="chatfloat_top_margin" value="' . esc_attr($top_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
+    echo '<input type="text" cols="5" name="chatfloat_top_margin" value="' . esc_attr($top_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
     echo '<p class="description">This is the label text which will be displayed with WhatsApp icon. Recommended to keep it short.</p>';
-    echo '<input type="text" name="chatfloat_bottom_margin" value="' . esc_attr($bottom_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
+    echo '<input type="text" cols="5" name="chatfloat_bottom_margin" value="' . esc_attr($bottom_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
 
-    echo '<input type="text" name="chatfloat_horizontal_margin" value="' . esc_attr($horizontal_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
+    echo '<input type="text" cols="5" name="chatfloat_horizontal_margin" value="' . esc_attr($horizontal_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
 }
 
 
