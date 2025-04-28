@@ -357,15 +357,16 @@ function chatfloat_render_button() {
                 color: ' . esc_attr($text_color) . ';
                 transition: background-color 0.5s ease, color 0.5s ease;
             }';
-
-            echo '@media (prefers-color-scheme: dark) {
+            if ($dark_mode === 'yes'){
+                
+                echo '@media (prefers-color-scheme: dark) {
                 .chatfloat-container .chatfloat-text span {
                     background-color: #25D366;
                     color: #FFFFFF;
                     transition: background-color 0.5s ease, color 0.5s ease;
 
                 }';
-                
+            }
             echo '}
           </style>';
 
