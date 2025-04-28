@@ -37,28 +37,11 @@ function chatfloat_render_button_html() {
     
     // Print out the custom CSS in the <head> to apply the background color dynamically
     echo '<style>
-            .chatfloat-container {
-                top: ' . esc_attr($top_margin) . 'px;
-                bottom: ' . esc_attr($bottom_margin) . 'px;
-                ' . ($position === 'left' ? 'left' : 'right') . ': ' . esc_attr($horizontal_margin) . 'px;
-                position: fixed;
-                display: flex;
-                align-items: center;
-                z-index: 1000;
-                .chatfloat-container .chatfloat-text span {
-                    background-color: ' . esc_attr($bg_color) . ';
-                    color: ' . esc_attr($text_color) . ';
-                    transition: background-color 0.5s ease, color 0.5s ease;
-            }
-            /* Position Classes */
-            .chatfloat-container.position-right {
-                right: ' . esc_attr($horizontal_margin) . 'px;
-            }
-
-            .chatfloat-container.position-left {
-                left: ' . esc_attr($horizontal_margin) . 'px;
-            }
-            ';
+            .chatfloat-container .chatfloat-text span {
+                background-color: ' . esc_attr($bg_color) . ';
+                color: ' . esc_attr($text_color) . ';
+                transition: background-color 0.5s ease, color 0.5s ease;
+            }';
             if ($dark_mode === 'yes'){
                 
                 echo '@media (prefers-color-scheme: dark) {

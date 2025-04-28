@@ -241,7 +241,7 @@ function chatfloat_register_settings() {
     );
     add_settings_field(
         'chatfloat_margin_field',
-        __('Update Button Margins:', 'chatfloat-floating-chat-button'),
+        __('Update Button Margins (dev.):', 'chatfloat-floating-chat-button'),
         'chatfloat_margin_field_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
