@@ -65,6 +65,11 @@ function chatfloat_settings_page() {
     ?>
     <div class="wrap">
         <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
+        <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated'] == true) : ?>
+            <div class="updated notice is-dismissible">
+                <p><strong>Settings saved successfully!</strong></p>
+            </div>
+        <?php endif; ?>
         <hr>
 
         <div class="settings-container">
@@ -74,11 +79,7 @@ function chatfloat_settings_page() {
                     <?php
                     settings_fields('chatfloat_settings_group');
                     do_settings_sections('chatfloat-settings');
-                    if (isset($_GET['settings-updated']) && $_GET['settings-updated'] == true) : ?>
-                        <div class="updated notice is-dismissible">
-                            <p><strong>✅ Settings saved successfully!</strong></p>
-                        </div>
-                    <?php endif;
+
                     submit_button();
                     ?>
                 </form>
