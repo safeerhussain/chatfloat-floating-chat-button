@@ -74,7 +74,7 @@ function chatfloat_settings_page() {
                     <?php
                     settings_fields('chatfloat_settings_group');
                     do_settings_sections('chatfloat-settings');
-                    <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated'] == true) : ?>
+                    if (isset($_GET['settings-updated']) && $_GET['settings-updated'] == true) : ?>
                         <div class="updated notice is-dismissible">
                             <p><strong>✅ Settings saved successfully!</strong></p>
                         </div>
