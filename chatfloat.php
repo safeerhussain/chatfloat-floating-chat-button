@@ -85,10 +85,10 @@ function chatfloat_settings_page() {
                 <div class="postbox">
                   <div class="inside">
                     <h2>🚀 About This Plugin</h2>
-                    <p>Developed with passion by <strong>Digital Eggheads</strong>.</p>
+                    <p>ChatFloat is developed as an in-house project by <strong>Team Digital Eggheads</strong>.</p>
 
                     <hr>
-                    
+
                     <h3>🎯 What It Does</h3>
                     <p>A simple and lightweight plugin to add a floating WhatsApp button on your website. Fully customizable via admin settings. Let your visitors chat instantly!</p>
 
