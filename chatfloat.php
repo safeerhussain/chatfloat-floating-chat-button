@@ -161,6 +161,11 @@ function chatfloat_register_settings() {
     // Register dark mode
     register_setting('chatfloat_settings_group', 'chatfloat_darkmode', 'sanitize_text_field');
 
+    // Register margins for button
+    register_setting('chatfloat_settings_group', 'chatfloat_top_margin', 'sanitize_text_field');
+    register_setting('chatfloat_settings_group', 'chatfloat_bottom_margin', 'sanitize_text_field');
+    register_setting('chatfloat_settings_group', 'chatfloat_horizontal_margin', 'sanitize_text_field');
+
 
     add_settings_section(
         'chatfloat_main_section',
@@ -231,6 +236,13 @@ function chatfloat_register_settings() {
         'chatfloat_text_color_field',
         __('Set Text Color:', 'chatfloat-floating-chat-button'),
         'chatfloat_text_color_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+    );
+    add_settings_field(
+        'chatfloat_margin_field',
+        __('Update Button Margins:', 'chatfloat-floating-chat-button'),
+        'chatfloat_margin_field_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
     );
@@ -324,6 +336,19 @@ function chatfloat_darkmode_field_callback() {
     <p class="description">Dark mode functionality is currently in beta. May not work on all themes.</p>
    
     <?php
+}
+
+function chatfloat_margin_field_callback() {
+    // Get margin values
+    $top_margin = get_option('chatfloat_top_margin', 20); // Default to 20px
+    $bottom_margin = get_option('chatfloat_bottom_margin', 20); // Default to 20px
+    $horizontal_margin = get_option('chatfloat_horizontal_margin', 20); // Default to 20px
+
+    echo '<input type="text" name="chatfloat_top_margin" value="' . esc_attr($top_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
+    echo '<p class="description">This is the label text which will be displayed with WhatsApp icon. Recommended to keep it short.</p>';
+    echo '<input type="text" name="chatfloat_bottom_margin" value="' . esc_attr($bottom_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
+
+    echo '<input type="text" name="chatfloat_horizontal_margin" value="' . esc_attr($horizontal_margin) . '" placeholder="' . esc_attr__('20', 'chatfloat-floating-chat-button') . '">';
 }
 
 
