@@ -354,7 +354,6 @@ function chatfloat_render_button() {
     
      // Print out the custom CSS in the <head> to apply the background color dynamically
     <?php
-        $dark_mode = get_option('chatfloat_darkmode', 'yes');
 
         echo '<style>
             .chatfloat-container .chatfloat-text span {
