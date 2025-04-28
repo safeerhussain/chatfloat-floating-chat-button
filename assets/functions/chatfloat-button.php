@@ -11,6 +11,10 @@ function chatfloat_render_button_html() {
     $display_desktop = get_option('chatfloat_display_desktop', 'yes');
     $display_mobile = get_option('chatfloat_display_mobile', 'yes');
     $dark_mode = get_option('chatfloat_darkmode');
+    $top_margin = get_option('chatfloat_top_margin', 20); // Default to 20px
+    $bottom_margin = get_option('chatfloat_bottom_margin', 20); // Default to 20px
+    $horizontal_margin = get_option('chatfloat_horizontal_margin', 20); // Default to 20px
+
     
     if (!$number) {
         return; // Do not show button if number is not set
