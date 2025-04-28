@@ -38,7 +38,7 @@ function chatfloat_enqueue_styles() {
         wp_enqueue_script('wp-color-picker');
         wp_add_inline_script('wp-color-picker', 'jQuery(document).ready(function($) { $(".my-color-field").wpColorPicker(); });');
 
-        wp_enqueue_script(plugin_dir_url(__FILE__) . 'assets/js/admin-js.js');
+        wp_enqueue_script('chatfloat-admin-js', plugin_dir_url(__FILE__) . 'assets/js/admin-js.js', array('jquery'), null, true);
  
     }
     
@@ -66,22 +66,6 @@ add_action('admin_menu', 'chatfloat_add_admin_menu');
 // Render plugin settings page
 function chatfloat_settings_page() {
     ?>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            const inputs = document.querySelectorAll('input, select');
-            
-            // Highlight changed inputs with a glow effect
-            inputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    input.classList.add('highlight-change');
-                    setTimeout(() => {
-                        input.classList.remove('highlight-change');
-                    }, 1000); // Glow effect duration
-                });
-            });
-        });
-
-    </script>
     <div class="wrap">
         <h1><?php esc_html_e('Chat Float - Settings', 'chatfloat-floating-chat-button'); ?></h1>
         <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated'] == true) : ?>
