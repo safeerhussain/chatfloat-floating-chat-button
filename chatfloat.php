@@ -149,6 +149,10 @@ function chatfloat_register_settings() {
     // Register pre filled setting message
     register_setting('chatfloat_settings_group', 'chatfloat_prefill_message', 'sanitize_text_field');
 
+    // Register dark mode
+    register_setting('chatfloat_settings_group', 'chatfloat_darkmode', 'sanitize_text_field');
+
+
     add_settings_section(
         'chatfloat_main_section',
         __('WhatsApp Settings', 'chatfloat-floating-chat-button'),
@@ -192,6 +196,14 @@ function chatfloat_register_settings() {
         'chatfloat_display_field',
         __('Control Visibility:', 'chatfloat-floating-chat-button'),
         'chatfloat_display_field_callback',
+        'chatfloat-settings',
+        'chatfloat_main_section'
+    );
+
+    add_settings_field(
+        'chatfloat_darkmode_field',
+        __('Dark Mode (beta):', 'chatfloat-floating-chat-button'),
+        'chatfloat_darkmode_field_callback',
         'chatfloat-settings',
         'chatfloat_main_section'
     );
@@ -286,6 +298,21 @@ function chatfloat_display_field_callback() {
         <span>Display on mobile</span>
     </label>
     <p class="description">Uncheck the box when you want to hide the button on specific devices.</p>
+   
+    <?php
+}
+
+
+// Dark mode option
+function chatfloat_display_field_callback() {
+    $dark_mode = get_option('chatfloat_darkmode', 'no'); // Default to no
+    ?>
+
+    <label>
+        <input type="checkbox" name="chatfloat_darkmode" value="yes" <?php checked($dark_mode, 'yes'); ?>>
+        <span>Enable Dark Mode (beta)</span>
+    </label>
+    <p class="description">Dark mode functionality is currently in beta. May not work on all themes.</p>
    
     <?php
 }
