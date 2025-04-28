@@ -21,7 +21,7 @@ function chatfloat_enqueue_styles() {
             'chatfloat-style',
             plugin_dir_url(__FILE__) . 'assets/css/style.css',
             [],
-            '1.1.10'
+            '1.1.11'
         );
     }
     // Admin styles (only on plugin settings page if needed)
