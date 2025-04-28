@@ -37,6 +37,9 @@ function chatfloat_enqueue_styles() {
         wp_enqueue_style('wp-color-picker');
         wp_enqueue_script('wp-color-picker');
         wp_add_inline_script('wp-color-picker', 'jQuery(document).ready(function($) { $(".my-color-field").wpColorPicker(); });');
+
+        wp_enqueue_script(plugin_dir_url(__FILE__) . 'assets/js/admin-js.js');
+ 
     }
     
 }
