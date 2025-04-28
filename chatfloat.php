@@ -353,25 +353,22 @@ function chatfloat_render_button() {
     }
     
      // Print out the custom CSS in the <head> to apply the background color dynamically
-    <?php
-
-        echo '<style>
+    echo '<style>
             .chatfloat-container .chatfloat-text span {
                 background-color: ' . esc_attr($bg_color) . ';
                 color: ' . esc_attr($text_color) . ';
                 transition: background-color 0.5s ease, color 0.5s ease;
             }
+
             @media (prefers-color-scheme: dark) {
                 .chatfloat-container .chatfloat-text span {
                     background-color: #25D366;
                     color: #333333;
                     transition: background-color 0.5s ease, color 0.5s ease;
+
                 }
-            }';
-
-        echo '</style>';
-    ?>
-
+            }
+          </style>';
 
 
     if (!empty($prefill_msg)) {
