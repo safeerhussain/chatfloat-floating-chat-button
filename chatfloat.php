@@ -30,7 +30,7 @@ function chatfloat_enqueue_styles() {
             'chatfloat-admin-style',
             plugin_dir_url(__FILE__) . 'assets/css/admin-style.css',
             [],
-            '1.1.0'
+            '1.1.1'
         );     
       
         // Enqueue WordPress color picker scripts and styles
