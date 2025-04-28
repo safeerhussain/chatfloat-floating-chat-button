@@ -78,7 +78,7 @@ function chatfloat_settings_page() {
                         <div class="updated notice is-dismissible">
                             <p><strong>✅ Settings saved successfully!</strong></p>
                         </div>
-                    <?php endif; ?>
+                    <?php endif;
                     submit_button();
                     ?>
                 </form>
