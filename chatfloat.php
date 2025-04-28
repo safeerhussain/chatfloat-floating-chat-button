@@ -328,9 +328,10 @@ function chatfloat_render_button() {
     $text_color = get_option('chatfloat_text_color', '#ffffff'); // Default to white
     $display_desktop = get_option('chatfloat_display_desktop', 'yes');
     $display_mobile = get_option('chatfloat_display_mobile', 'yes');
-    $dark_mode = get_option('chatfloat_darkmode', 'yes');
+    $dark_mode = get_option('chatfloat_darkmode');
 
     console_log('=========>'.$dark_mode);
+    var_dump($dark_mode);
 
 
     if (!$number) {
