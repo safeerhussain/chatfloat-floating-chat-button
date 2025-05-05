@@ -63,6 +63,16 @@ function chatfloat_add_admin_menu() {
 
 add_action('admin_menu', 'chatfloat_add_admin_menu');
 
+// Add settings link on the Plugins list page
+function chatfloat_add_settings_link($links) {
+    $settings_link = '<a href="admin.php?page=chatfloat-settings">' . __('Settings', 'chatfloat-floating-chat-button') . '</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'chatfloat_add_settings_link');
+
+
 // Render plugin settings page
 function chatfloat_settings_page() {
     ?>
