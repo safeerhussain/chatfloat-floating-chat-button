@@ -4,7 +4,8 @@ Donate link: https://digitaleggheads.com/
 Tags: whatsapp, chat, floating button, whatsapp support, customer service
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.1.1
+Stable tag: 1.2
+Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +32,18 @@ You can override the CSS by adding custom styles to your theme or child theme’
 = Does it support multiple WhatsApp numbers? =
 Currently, the plugin supports a single number. Future versions may offer multiple profiles.
 
+== Screenshots ==
+1. Chat button displayed on the website. Works on both mobile + desktop 
+2. Customizable settings of ChatFloat button
+
 == Changelog ==
+= 1.2 =
+* Code cleanup
+* Added customization of button styles (color/position)
+* Added visibility of button (desktop/mobile)
+* Added custom message option with button
+
+
 = 1.1 =
 * Minor code cleanup
 * Improved documentation and comments
