@@ -2,7 +2,7 @@
 /*
 Plugin Name: ChatFloat – Floating Chat Button
 Description: A simple and lightweight plugin to add a floating WhatsApp button on your website. Fully customizable via admin settings. Let your visitors chat instantly.
-Version: 1.2
+Version: 1.2.1
 Author: Digital Eggheads
 Author URI: https://digitaleggheads.com
 License: GPL2+

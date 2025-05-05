@@ -4,7 +4,7 @@ Donate link: https://digitaleggheads.com/
 Tags: whatsapp, chat, floating button, whatsapp support, customer service
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.2
+Stable tag: 1.2.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,10 @@ Currently, the plugin supports a single number. Future versions may offer multip
 2. Customizable settings of ChatFloat button
 
 == Changelog ==
+= 1.2.1 =
+* Added settings link on plugins listing page
+
+
 = 1.2 =
 * Code cleanup
 * Added customization of button styles (color/position)
